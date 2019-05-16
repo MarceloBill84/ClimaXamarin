@@ -10,31 +10,34 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <helper:LenghtToBollConverter x:Key="lenghtToBollConverter"></helper:LenghtToBollConverter>
+            <helper:NegateBooleanConverter x:Key="negateBooleanConverter"></helper:NegateBooleanConverter>
         </ResourceDictionary>
     </ContentPage.Resources>
     
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Fill" Padding="10, 0, 10, 10">
         <ActivityIndicator IsRunning="{Binding Busy}" IsVisible="{Binding Busy}" ></ActivityIndicator>
-        <Label x:Name="lblMensagem" FontSize="Large" Text="Você não possui nenhuma cidade adicionada aos favoritos" 
+        <StackLayout IsVisible="{Binding Busy, Converter={StaticResource negateBooleanConverter}}" VerticalOptions="FillAndExpand">
+            <Label x:Name="lblMensagem" FontSize="Large" Text="Você não possui nenhuma cidade adicionada aos favoritos" 
                IsVisible="{Binding             
                         Path=.Cidades.Count, 
                         Converter={StaticResource lenghtToBollConverter}
                         }" 
                ></Label>
-        <ListView x:Name="CidadeList" ItemsSource="{Binding Cidades}" ItemTapped="CidadeList_ItemTapped" >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid>
-                            <Label Text="{Binding nome}" FontSize="Medium" FontAttributes="Bold" ></Label>
-                            <Label Grid.Column="1" Text="{Binding clima}" FontSize="Small" ></Label>
-                            <Label Grid.Column="2" Text="{Binding temperatura, StringFormat='{0} °C'}" FontSize="Small" HorizontalTextAlignment="End" ></Label>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <Button x:Name="Pesquisa" Text="Pesquisar Cidade" Padding="30, 20, 30, 20" Clicked="Pesquisa_Clicked" ></Button>
+            <ListView x:Name="CidadeList" ItemsSource="{Binding Cidades}" ItemTapped="CidadeList_ItemTapped" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Label Text="{Binding nome}" FontSize="Medium" FontAttributes="Bold" ></Label>
+                                <Label Grid.Column="1" Text="{Binding clima}" FontSize="Small" ></Label>
+                                <Label Grid.Column="2" Text="{Binding temperatura, StringFormat='{0} °C'}" FontSize="Small" HorizontalTextAlignment="End" ></Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button x:Name="Pesquisa" Text="Pesquisar Cidade" Padding="30, 20, 30, 20" Clicked="Pesquisa_Clicked" ></Button>
+        </StackLayout>
     </StackLayout>
 
 </ContentPage>

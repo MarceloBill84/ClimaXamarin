@@ -16,19 +16,12 @@ namespace Clima.ViewModels
     {
 		private readonly ICidadeService cidadeService;
 		private readonly INavigationService navigationService;
-		private bool busy;
 		private ObservableCollection<CidadeFavoritaModel> cidades;
 
 		public ObservableCollection<CidadeFavoritaModel> Cidades
 		{
 			get => cidades;
 			set => SetProperty(ref cidades, value);
-		}
-
-		public bool Busy
-		{
-			get => busy;
-			set => SetProperty(ref busy, value);
 		}
 
         public MainPageViewModel(INavigationService navigationService, ICidadeService cidadeService) 

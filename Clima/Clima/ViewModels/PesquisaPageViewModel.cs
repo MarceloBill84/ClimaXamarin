@@ -35,7 +35,9 @@ namespace Clima.ViewModels
 
 		public async Task CarregarCidades()
 		{
+			Busy = true;
 			Cidades = new ObservableCollection<Cidade>(await cidadeService.ObterCidadesAsync());
+			Busy = false;
 		}
 
 		public async Task RetornarFavoritos()

@@ -70,7 +70,7 @@ namespace Clima.ViewModels
 		public override void OnNavigatedTo(INavigationParameters parameters)
 		{
 			base.OnNavigatedTo(parameters);
-
+			
 			var cidade = (int)parameters.First().Value;
 			Task.Run(async () => IdFavorita = await cidadeService.ObterCidadeFavorita(cidade));
 			Task.Run(async () => await CarregarClima(cidade));
@@ -78,6 +78,7 @@ namespace Clima.ViewModels
 
 		public async Task CarregarClima(int codigo)
 		{
+			Busy = true;
 			var model = await cidadeService.ObterDetalheClima(codigo);
 
 			if (model == null)
@@ -89,6 +90,7 @@ namespace Clima.ViewModels
 			Temperatura = model.temperaturaAtual;
 			Maxima = model.temperaturaMaxima;
 			Minima = model.temperaturaMinima;
+			Busy = false;
 		}
 
 		public async Task VoltarTelaAnterior()

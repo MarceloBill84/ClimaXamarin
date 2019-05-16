@@ -1,22 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helper="clr-namespace:Clima.Helpers"
              x:Class="Clima.Views.PesquisaPage"
              Padding="0, 10, 0, 0"
              Title="{Binding Title}"
              >
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Fill" Padding="10, 0, 10, 10">
-        <ListView x:Name="CidadeList" ItemsSource="{Binding Cidades}" ItemTapped="CidadeList_ItemTapped" >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Label Text="{Binding nome}" FontSize="Medium" ></Label>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <Button x:Name="Favoritos" Text="Retornar para Favoritos" Padding="30, 20, 30, 20" Clicked="Favoritos_Clicked" ></Button>
-    </StackLayout>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <helper:NegateBooleanConverter x:Key="negateBooleanConverter"></helper:NegateBooleanConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Fill" Padding="10, 0, 10, 10">
+        <ActivityIndicator IsRunning="{Binding Busy}" IsVisible="{Binding Busy}" ></ActivityIndicator>
+        <StackLayout IsVisible="{Binding Busy, Converter={StaticResource negateBooleanConverter}}" VerticalOptions="FillAndExpand">
+            <ListView x:Name="CidadeList" ItemsSource="{Binding Cidades}" ItemTapped="CidadeList_ItemTapped" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding nome}" FontSize="Medium" ></Label>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button x:Name="Favoritos" Text="Retornar para Favoritos" Padding="30, 20, 30, 20" Clicked="Favoritos_Clicked" ></Button>
+        </StackLayout>
+    </StackLayout>
 </ContentPage>

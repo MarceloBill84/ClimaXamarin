@@ -11,39 +11,43 @@
         <ResourceDictionary>
             <helper:IdFavoritatoDisableConverter x:Key="idFavoritatoDisableConverter"></helper:IdFavoritatoDisableConverter>
             <helper:IdFavoritaToEnableConverter x:Key="idFavoritaToEnableConverter"></helper:IdFavoritaToEnableConverter>
+            <helper:NegateBooleanConverter x:Key="negateBooleanConverter"></helper:NegateBooleanConverter>
         </ResourceDictionary>
     </ContentPage.Resources>
     
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Fill" Padding="10, 0, 10, 10">
-        <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"></RowDefinition>
-                <RowDefinition Height="5*"></RowDefinition>
-                <RowDefinition Height="1*"></RowDefinition>
-                <RowDefinition Height="1*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Label Text="{Binding Nome}" FontSize="Large" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0" FontAttributes="Bold" Grid.ColumnSpan="2" ></Label>
-            <Label Text="{Binding Temperatura, StringFormat='{0} °C'}" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Row="1" Grid.Column="0" ></Label>
-            <Label Text="{Binding Clima}" FontSize="Medium" Grid.Row="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="1" ></Label>
-            <Label Text="Temp. Mínima:" FontSize="Medium" Grid.Row="2" Grid.Column="0" ></Label>
-            <Label Text="{Binding Minima, StringFormat='{0} °C'}" FontSize="Medium" Grid.Row="2" Grid.Column="1" ></Label>
-            <Label Text="Temp. Máxima:" FontSize="Medium" Grid.Row="3" Grid.Column="0" ></Label>
-            <Label Text="{Binding Maxima, StringFormat='{0} °C'}" FontSize="Medium" Grid.Row="3" Grid.Column="1" ></Label>
-        </Grid>
-        <Button x:Name="btnVoltar" Text="Voltar Tela Anterior" Clicked="btnVoltar_Clicked" ></Button>
-        <Button x:Name="btnAdicionar" Text="Adicionar Favorito" Clicked="btnAdicionar_Clicked" 
+        <ActivityIndicator IsRunning="{Binding Busy}" IsVisible="{Binding Busy}" ></ActivityIndicator>
+        <StackLayout IsVisible="{Binding Busy, Converter={StaticResource negateBooleanConverter}}" VerticalOptions="FillAndExpand">
+            <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"></RowDefinition>
+                    <RowDefinition Height="5*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Text="{Binding Nome}" FontSize="Large" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0" FontAttributes="Bold" Grid.ColumnSpan="2" ></Label>
+                <Label Text="{Binding Temperatura, StringFormat='{0} °C'}" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Row="1" Grid.Column="0" ></Label>
+                <Label Text="{Binding Clima}" FontSize="Medium" Grid.Row="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="1" ></Label>
+                <Label Text="Temp. Mínima:" FontSize="Medium" Grid.Row="2" Grid.Column="0" ></Label>
+                <Label Text="{Binding Minima, StringFormat='{0} °C'}" FontSize="Medium" Grid.Row="2" Grid.Column="1" ></Label>
+                <Label Text="Temp. Máxima:" FontSize="Medium" Grid.Row="3" Grid.Column="0" ></Label>
+                <Label Text="{Binding Maxima, StringFormat='{0} °C'}" FontSize="Medium" Grid.Row="3" Grid.Column="1" ></Label>
+            </Grid>
+            <Button x:Name="btnVoltar" Text="Voltar Tela Anterior" Clicked="btnVoltar_Clicked" ></Button>
+            <Button x:Name="btnAdicionar" Text="Adicionar Favorito" Clicked="btnAdicionar_Clicked" 
                 IsVisible="{Binding             
                         Path=.IdFavorita, 
                         Converter={StaticResource idFavoritaToEnableConverter}
                         }" ></Button>
-        <Button x:Name="btnRemover" Text="Remover Favorito" Clicked="btnRemover_Clicked"
+            <Button x:Name="btnRemover" Text="Remover Favorito" Clicked="btnRemover_Clicked"
                 IsVisible="{Binding             
                         Path=.IdFavorita, 
                         Converter={StaticResource idFavoritatoDisableConverter}
                         }" ></Button>
+        </StackLayout>
     </StackLayout>
 </ContentPage>
