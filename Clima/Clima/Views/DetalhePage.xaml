@@ -27,12 +27,12 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Label Text="{Binding Nome}" FontSize="Large" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0" FontAttributes="Bold" Grid.ColumnSpan="2" ></Label>
-            <Label Text="{Binding Temperatura}" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Row="1" Grid.Column="0" ></Label>
+            <Label Text="{Binding Temperatura, StringFormat='{0} °C'}" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Row="1" Grid.Column="0" ></Label>
             <Label Text="{Binding Clima}" FontSize="Medium" Grid.Row="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="1" ></Label>
             <Label Text="Temp. Mínima:" FontSize="Medium" Grid.Row="2" Grid.Column="0" ></Label>
-            <Label Text="{Binding Minima}" FontSize="Medium" Grid.Row="2" Grid.Column="1" ></Label>
+            <Label Text="{Binding Minima, StringFormat='{0} °C'}" FontSize="Medium" Grid.Row="2" Grid.Column="1" ></Label>
             <Label Text="Temp. Máxima:" FontSize="Medium" Grid.Row="3" Grid.Column="0" ></Label>
-            <Label Text="{Binding Maxima}" FontSize="Medium" Grid.Row="3" Grid.Column="1" ></Label>
+            <Label Text="{Binding Maxima, StringFormat='{0} °C'}" FontSize="Medium" Grid.Row="3" Grid.Column="1" ></Label>
         </Grid>
         <Button x:Name="btnVoltar" Text="Voltar Tela Anterior" Clicked="btnVoltar_Clicked" ></Button>
         <Button x:Name="btnAdicionar" Text="Adicionar Favorito" Clicked="btnAdicionar_Clicked" 
