@@ -43,5 +43,17 @@ namespace Clima.ViewModels
 		{
 			await navigationService.NavigateAsync("PesquisaPage");
 		}
-    }
+
+		public async Task AbrirDetalhe(object item)
+		{
+			var cidade = item as CidadeFavoritaModel;
+
+			if (cidade == null)
+				return;
+
+			var parametros = new NavigationParameters();
+			parametros.Add("idCidade", cidade.codigo);
+			await navigationService.NavigateAsync("DetalhePage", parametros);
+		}
+	}
 }

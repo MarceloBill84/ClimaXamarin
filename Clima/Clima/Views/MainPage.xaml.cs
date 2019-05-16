@@ -27,5 +27,13 @@ namespace Clima.Views
 		{
 			await ViewModel.CarregarTelaPesquisa();
 		}
+
+		private async void CidadeList_ItemTapped(object sender, ItemTappedEventArgs e)
+		{
+			if (e.Item == null)
+				return;
+
+			await ViewModel.AbrirDetalhe(e.Item);
+		}
 	}
 }
