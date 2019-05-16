@@ -7,3 +7,7 @@ Prism.Dryoc: injetor de dependência que ajuda a controlar a memoria do aplicativ
 sqlite: gerenciador de banco de dados para dispositivo móvel.
 
 
+Como melhoria no código poderia ter criado um padrão para acesso ao BD com generics (repository pattern).
+Padronizado o nome dos métodos e variavéis para a mesma linguagem (pt-br por exemplo).
+Criado um projeto para teste unitário.
+Realizado o tratamento de exceções para acesso ao BD e web service.
