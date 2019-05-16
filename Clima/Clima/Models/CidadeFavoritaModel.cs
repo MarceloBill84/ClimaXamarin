@@ -6,9 +6,9 @@ namespace Clima.Models
 {
     public class CidadeFavoritaModel
     {
-		public int codigo { get; set; }
-		public string nome { get; set; }
-		public string clima { get; set; }
-		public float temperatura { get; set; }
+		public int Codigo { get; set; }
+		public string Nome { get; set; }
+		public string Clima { get; set; }
+		public float Temperatura { get; set; }
 	}
 }

@@ -53,7 +53,7 @@ namespace Clima.ViewModels
 				return;
 
 			var parametros = new NavigationParameters();
-			parametros.Add("idCidade", cidade.codigo);
+			parametros.Add("idCidade", cidade.Codigo);
 			await navigationService.NavigateAsync("DetalhePage", parametros);
 		}
 	}

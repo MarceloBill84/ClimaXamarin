@@ -8,6 +8,6 @@ namespace Clima.Models
     public class CidadeFavorita
     {
 		[PrimaryKey]
-		public int codigo { get; set; }
+		public int Codigo { get; set; }
 	}
 }

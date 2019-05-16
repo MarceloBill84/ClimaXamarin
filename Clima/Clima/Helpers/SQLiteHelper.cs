@@ -33,7 +33,7 @@ namespace Clima.Helpers
 		
 		public Task<CidadeFavorita> GetItemAsync(int codigo)
 		{
-			return db.Table<CidadeFavorita>().FirstOrDefaultAsync(i => i.codigo == codigo);
+			return db.Table<CidadeFavorita>().FirstOrDefaultAsync(i => i.Codigo == codigo);
 		}
 	}
 }

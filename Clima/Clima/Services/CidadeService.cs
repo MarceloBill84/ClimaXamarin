@@ -34,15 +34,15 @@ namespace Clima.Services
 
 			foreach (var item in favoritas)
 			{
-				var clima = await ObterClimaAsync(item.codigo);
+				var clima = await ObterClimaAsync(item.Codigo);
 
 				if (clima != null)
 					retorno.Add(new CidadeFavoritaModel
 					{
-						codigo = item.codigo,
-						nome = clima.name,
-						clima = clima.weather[0].description,
-						temperatura = clima.main.temp
+						Codigo = item.Codigo,
+						Nome = clima.name,
+						Clima = clima.weather[0].description,
+						Temperatura = clima.main.temp
 					});
 			}
 
@@ -58,12 +58,12 @@ namespace Clima.Services
 
 			return new DetalheClima
 			{
-				codigo = idCidade,
-				nome = informacaoClima.name,
-				clima = informacaoClima.weather[0].description,
-				temperaturaAtual = informacaoClima.main.temp,
-				temperaturaMinima = informacaoClima.main.temp_min,
-				temperaturaMaxima = informacaoClima.main.temp_max
+				Codigo = idCidade,
+				Nome = informacaoClima.name,
+				Clima = informacaoClima.weather[0].description,
+				TemperaturaAtual = informacaoClima.main.temp,
+				TemperaturaMinima = informacaoClima.main.temp_min,
+				TemperaturaMaxima = informacaoClima.main.temp_max
 			};
 		}
 
@@ -99,7 +99,7 @@ namespace Clima.Services
 			if (cidade == null)
 				return 0;
 
-			return cidade.codigo;
+			return cidade.Codigo;
 		}
 	}
 }

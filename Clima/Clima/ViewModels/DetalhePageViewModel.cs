@@ -85,11 +85,11 @@ namespace Clima.ViewModels
 				return;
 
 			Id = codigo;
-			Nome = model.nome;
-			Clima = model.clima;
-			Temperatura = model.temperaturaAtual;
-			Maxima = model.temperaturaMaxima;
-			Minima = model.temperaturaMinima;
+			Nome = model.Nome;
+			Clima = model.Clima;
+			Temperatura = model.TemperaturaAtual;
+			Maxima = model.TemperaturaMaxima;
+			Minima = model.TemperaturaMinima;
 			Busy = false;
 		}
 
@@ -102,7 +102,7 @@ namespace Clima.ViewModels
 		{
 			await cidadeService.AdicionarFavorito(new CidadeFavorita
 			{
-				codigo = id
+				Codigo = id
 			});
 
 			IdFavorita = id;
@@ -112,7 +112,7 @@ namespace Clima.ViewModels
 		{
 			await cidadeService.RemoverFavorito(new CidadeFavorita
 			{
-				codigo = id
+				Codigo = id
 			});
 
 			IdFavorita = 0;

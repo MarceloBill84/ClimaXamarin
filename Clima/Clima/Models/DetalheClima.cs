@@ -6,11 +6,11 @@ namespace Clima.Models
 {
     public class DetalheClima
     {
-		public int codigo { get; set; }
-		public string nome { get; set; }
-		public float temperaturaMinima { get; set; }
-		public float temperaturaMaxima { get; set; }
-		public float temperaturaAtual { get; set; }
-		public string clima { get; set; }
+		public int Codigo { get; set; }
+		public string Nome { get; set; }
+		public float TemperaturaMinima { get; set; }
+		public float TemperaturaMaxima { get; set; }
+		public float TemperaturaAtual { get; set; }
+		public string Clima { get; set; }
 	}
 }

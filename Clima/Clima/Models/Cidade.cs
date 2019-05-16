@@ -6,7 +6,7 @@ namespace Clima.Models
 {
 	public class Cidade
 	{
-		public int codigo { get; set; }
-		public string nome { get; set; }
+		public int Codigo { get; set; }
+		public string Nome { get; set; }
 	}
 }

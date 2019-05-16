@@ -1,0 +1,9 @@
+Foi utilizado o padrão MVVM pois contribui para a separação da lógica de negócios e da interface com o usuário. Isto contribui para o reaproveitamento de código, testabilidade e manutenção do sistema.
+
+Biblioteca de terceiros:
+Prism: é um framework MVVM que ajuda aumentar a produtividade e a padronização do projeto.
+Newtonsoft.Json: disponibiliza funções para manipular json.
+Prism.Dryoc: injetor de dependência que ajuda a controlar a memoria do aplicativo e gerenciar a vida dos componentes
+sqlite: gerenciador de banco de dados para dispositivo móvel.
+
+

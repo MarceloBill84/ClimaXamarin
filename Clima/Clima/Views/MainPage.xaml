@@ -28,9 +28,9 @@
                     <DataTemplate>
                         <ViewCell>
                             <Grid>
-                                <Label Text="{Binding nome}" FontSize="Medium" FontAttributes="Bold" ></Label>
-                                <Label Grid.Column="1" Text="{Binding clima}" FontSize="Small" ></Label>
-                                <Label Grid.Column="2" Text="{Binding temperatura, StringFormat='{0} °C'}" FontSize="Small" HorizontalTextAlignment="End" ></Label>
+                                <Label Text="{Binding Nome}" FontSize="Medium" FontAttributes="Bold" ></Label>
+                                <Label Grid.Column="1" Text="{Binding Clima}" FontSize="Small" ></Label>
+                                <Label Grid.Column="2" Text="{Binding Temperatura, StringFormat='{0} °C'}" FontSize="Small" HorizontalTextAlignment="End" ></Label>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
