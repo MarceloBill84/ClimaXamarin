@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helper="clr-namespace:Clima.Helpers"
+             x:Class="Clima.Views.DetalhePage"
+             Padding="0, 10, 0, 0"
+             Title="{Binding Title}"
+             >
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <helper:IdFavoritatoDisableConverter x:Key="idFavoritatoDisableConverter"></helper:IdFavoritatoDisableConverter>
+            <helper:IdFavoritaToEnableConverter x:Key="idFavoritaToEnableConverter"></helper:IdFavoritaToEnableConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Fill" Padding="10, 0, 10, 10">
+        <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Text="{Binding Nome}" FontSize="Large" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0" FontAttributes="Bold" Grid.ColumnSpan="2" ></Label>
+            <Label Text="{Binding Temperatura}" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Row="1" Grid.Column="0" ></Label>
+            <Label Text="{Binding Clima}" FontSize="Medium" Grid.Row="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="1" ></Label>
+            <Label Text="Temp. Mínima:" FontSize="Medium" Grid.Row="2" Grid.Column="0" ></Label>
+            <Label Text="{Binding Minima}" FontSize="Medium" Grid.Row="2" Grid.Column="1" ></Label>
+            <Label Text="Temp. Máxima:" FontSize="Medium" Grid.Row="3" Grid.Column="0" ></Label>
+            <Label Text="{Binding Maxima}" FontSize="Medium" Grid.Row="3" Grid.Column="1" ></Label>
+        </Grid>
+        <Button x:Name="btnVoltar" Text="Voltar Tela Anterior" Clicked="btnVoltar_Clicked" ></Button>
+        <Button x:Name="btnAdicionar" Text="Adicionar Favorito" Clicked="btnAdicionar_Clicked" 
+                IsVisible="{Binding             
+                        Path=.IdFavorita, 
+                        Converter={StaticResource idFavoritaToEnableConverter}
+                        }" ></Button>
+        <Button x:Name="btnRemover" Text="Remover Favorito" Clicked="btnRemover_Clicked"
+                IsVisible="{Binding             
+                        Path=.IdFavorita, 
+                        Converter={StaticResource idFavoritatoDisableConverter}
+                        }" ></Button>
+    </StackLayout>
+</ContentPage>

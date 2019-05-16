@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helper="clr-namespace:Clima.Helpers"
+             x:Class="Clima.Views.MainPage"
+             Padding="0, 10, 0, 0"
+             Title="{Binding Title}"
+             >
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <helper:LenghtToBollConverter x:Key="lenghtToBollConverter"></helper:LenghtToBollConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Fill" Padding="10, 0, 10, 10">
+        <Label x:Name="lblMensagem" FontSize="Large" Text="Você não possui nenhuma cidade adicionada aos favoritos" 
+               IsVisible="{Binding             
+                        Path=.Cidades.Count, 
+                        Converter={StaticResource lenghtToBollConverter}
+                        }" 
+               ></Label>
+        <ListView x:Name="CidadeList" ItemsSource="{Binding Cidades}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding nome}" FontSize="Medium" ></Label>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="Pesquisa" Text="Pesquisar Cidade" Padding="30, 20, 30, 20" Clicked="Pesquisa_Clicked" ></Button>
+    </StackLayout>
+
+</ContentPage>
