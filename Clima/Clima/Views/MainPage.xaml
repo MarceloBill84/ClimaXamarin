@@ -14,6 +14,7 @@
     </ContentPage.Resources>
     
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Fill" Padding="10, 0, 10, 10">
+        <ActivityIndicator IsRunning="{Binding Busy}" IsVisible="{Binding Busy}" ></ActivityIndicator>
         <Label x:Name="lblMensagem" FontSize="Large" Text="Você não possui nenhuma cidade adicionada aos favoritos" 
                IsVisible="{Binding             
                         Path=.Cidades.Count, 
