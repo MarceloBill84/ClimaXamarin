@@ -71,9 +71,9 @@ namespace Clima.ViewModels
 		{
 			base.OnNavigatedTo(parameters);
 
-			var cidade = (Cidade)parameters.First().Value;
-			Task.Run(async () => IdFavorita = await cidadeService.ObterCidadeFavorita(cidade.codigo));
-			Task.Run(async () => await CarregarClima(cidade.codigo));
+			var cidade = (int)parameters.First().Value;
+			Task.Run(async () => IdFavorita = await cidadeService.ObterCidadeFavorita(cidade));
+			Task.Run(async () => await CarregarClima(cidade));
 		}
 
 		public async Task CarregarClima(int codigo)
