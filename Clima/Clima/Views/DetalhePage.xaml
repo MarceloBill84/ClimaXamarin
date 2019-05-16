@@ -16,7 +16,7 @@
     </ContentPage.Resources>
     
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Fill" Padding="10, 0, 10, 10">
-        <ActivityIndicator IsRunning="{Binding Busy}" IsVisible="{Binding Busy}" ></ActivityIndicator>
+        <ActivityIndicator IsRunning="{Binding Busy}" IsVisible="{Binding Busy}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ></ActivityIndicator>
         <StackLayout IsVisible="{Binding Busy, Converter={StaticResource negateBooleanConverter}}" VerticalOptions="FillAndExpand">
             <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
                 <Grid.RowDefinitions>
